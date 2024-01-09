@@ -1,5 +1,5 @@
 import time
-import pyautogui
+# import pyautogui
 from PIL import ImageGrab
 import process_ss
 # Set the interval between each screenshot in seconds
@@ -17,9 +17,8 @@ time.sleep(5)  # Wait for 5 seconds to switch focus
 
 # Capture screenshots
 for i in range(num_screenshots):
-    # Capture screenshot using pyautogui
     screenshot = ImageGrab.grab()
-    process_ss.preprocess_image(screenshot)
+    # process_ss.preprocess_image(screenshot)
     # Save the screenshot
     screenshot.save(f"{save_path}screenshot_{i+1}.png")
     
