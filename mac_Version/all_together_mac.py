@@ -1,5 +1,5 @@
-import find_game_mac
-import get_screen_mac
+import mac_Version.find_game_mac as find_game_mac
+import mac_Version.get_screen_mac as get_screen_mac
 # import process_image_mac
 #find the game
 
