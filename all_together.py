@@ -11,4 +11,4 @@ def game_image():
         # time.sleep(0.05)
 
 for x in range(10000):
-    game_image() 
+    game_image()                            
