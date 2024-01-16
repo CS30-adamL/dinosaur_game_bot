@@ -81,8 +81,8 @@ from PIL import ImageGrab, Image
 
 
         
-def Process(dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img,cropped_image)
-    test_pixels_in_Box(dinosaur_Topleft_on_cropped_img[0],dinosaur_Topleft_on_cropped_img[1],dinosaur_bottomright_on_cropped_img[0],dinosaur_bottomright_on_cropped_img[1],cropped_image):
+def Process(dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img,cropped_image):
+    if test_pixels_in_Box(dinosaur_Topleft_on_cropped_img[0],dinosaur_Topleft_on_cropped_img[1],dinosaur_bottomright_on_cropped_img[0],dinosaur_bottomright_on_cropped_img[1],cropped_image):
         return True
     else:
         return False
