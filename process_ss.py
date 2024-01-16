@@ -79,57 +79,14 @@
 from PIL import ImageGrab, Image
 
 
-# # Path to save the screenshots
-# def Capture_screenshot():
-#     save_path = "F:/GitHub/dinosaur_game_bot/screen_shots/"
-#     screenshot = ImageGrab.grab()
-#     screenshot.save(f"{save_path}screenshot.png")
-#     print("Screenshots captured successfully.")
 
-
-# Construct the full path to the screenshot
-def Capture_and_crop_screenshot(top_left,bottom_right,dinosaur_Topleft,dinosaur_bottomright):
-    screenshot = ImageGrab.grab()
-    crop_coords = (top_left[0], top_left[1], bottom_right[0], bottom_right[1])
-    cropped_image = screenshot.crop(crop_coords)
-    cropped_image.save(f"F:/GitHub/dinosaur_game_bot/screen_shots/cropped_screenshot.png")
-    dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img = on_cropped_img(top_left,bottom_right,dinosaur_Topleft,dinosaur_bottomright)
-    
-    if test_pixels_in_Box(dinosaur_Topleft_on_cropped_img[0],dinosaur_Topleft_on_cropped_img[1],dinosaur_bottomright_on_cropped_img[0],dinosaur_bottomright_on_cropped_img[1],cropped_image):
+        
+def Process(dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img,cropped_image)
+    test_pixels_in_Box(dinosaur_Topleft_on_cropped_img[0],dinosaur_Topleft_on_cropped_img[1],dinosaur_bottomright_on_cropped_img[0],dinosaur_bottomright_on_cropped_img[1],cropped_image):
         return True
     else:
         return False
-    # test_pixel = cropped_image.getpixel(dinosaur)
-    # if calculate_luminance(test_pixel): 
-    #     return True
-    # else:
-    #     return False
-    
-def on_cropped_img(top_left,bottom_right,dinosaur_Topleft,dinosaur_bottomright):
-    dinosaur_Topleft_x = dinosaur_Topleft[0] - top_left[0]
-    dinosaur_Topleft_y = dinosaur_Topleft[1] - top_left[1]
-    dinosaur_bottomright_x = dinosaur_bottomright[0] - top_left[0]
-    dinosaur_bottomright_y = dinosaur_bottomright[1] - top_left[1]
-
-    return (dinosaur_Topleft_x,dinosaur_Topleft_y),(dinosaur_bottomright_x,dinosaur_bottomright_y)
-
-
-def calculate_luminance(color):
-    # Calculate relative luminance for sRGB color
-    r, g, b = color
-    r = r / 255.0 if r <= 0.03928 else ((r / 255.0 + 0.055) / 1.055) ** 2.4
-    g = g / 255.0 if g <= 0.03928 else ((g / 255.0 + 0.055) / 1.055) ** 2.4
-    b = b / 255.0 if b <= 0.03928 else ((b / 255.0 + 0.055) / 1.055) ** 2.4
-    luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
-    if luminance > 0.5:
-        # print ("WHITE")
-        return False
-        #WHITE
-    else:
-        #BLACk
-        # print ("BLACk")
-        return True
-
+   
 def test_pixels_in_Box(x1,y1,x2,y2,cropped_image):
     num_black = 0
     num_white = 0
@@ -160,4 +117,19 @@ def test_pixels_in_Box(x1,y1,x2,y2,cropped_image):
         return False
 
 
+def calculate_luminance(color):
+    # Calculate relative luminance for sRGB color
+    r, g, b = color
+    r = r / 255.0 if r <= 0.03928 else ((r / 255.0 + 0.055) / 1.055) ** 2.4
+    g = g / 255.0 if g <= 0.03928 else ((g / 255.0 + 0.055) / 1.055) ** 2.4
+    b = b / 255.0 if b <= 0.03928 else ((b / 255.0 + 0.055) / 1.055) ** 2.4
+    luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    if luminance > 0.5:
+        # print ("WHITE")
+        return False
+        #WHITE
+    else:
+        #BLACk
+        # print ("BLACk")
+        return True
 
