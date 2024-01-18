@@ -18,4 +18,3 @@ def Capture_and_crop_screenshot(top_left,bottom_right,dinosaur_Topleft,dinosaur_
     dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img = on_cropped_img(top_left,bottom_right,dinosaur_Topleft,dinosaur_bottomright)
     return dinosaur_Topleft_on_cropped_img , dinosaur_bottomright_on_cropped_img,cropped_image      
     
-        

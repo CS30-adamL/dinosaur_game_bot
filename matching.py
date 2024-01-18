@@ -44,12 +44,12 @@ def find_image(template_path,screenshot_path):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
         return top_left,bottom_right,bottom_left,top_right, lowest_y
-#         # Display the result
-#         cv2.imshow('Matched Image', screenshot)
-#         cv2.waitKey(0)
-#         cv2.destroyAllWindows()
-#     else:
-#         print("Image not found in the screenshot.")
+        # Display the result
+        cv2.imshow('Matched Image', screenshot)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    else:
+        print("Image not found in the screenshot.")
 
-# # Example usage
+# Example usage
 find_image('F:\GitHub\dinosaur_game_bot\Dino2.png', 'F:\GitHub\dinosaur_game_bot\screen_shots\cropped_screenshot.png')
